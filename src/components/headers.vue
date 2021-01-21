@@ -20,7 +20,7 @@
               <circle cx="221" cy="189" r="11" />
             </g>
           </svg>
-          <h1>流浪動物之家123</h1>
+          <h1>流浪動物之家123456</h1>
           <p>Stray Animals</p>
         </div>
       </router-link>
