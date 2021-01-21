@@ -1,0 +1,121 @@
+.login {
+  margin-bottom: 60px;
+
+  &-wrap {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+
+    &-content {
+      width: 80%;
+      margin: auto;
+      position: relative;
+      text-align: center;
+
+      &-bg {
+        background-image: url(~@/assets/images/login/dogs-3091321_1920.jpg);
+        background-size: cover;
+        background-position: 50% 88%;
+        position: absolute;
+        height: 100%;
+        left: 0px;
+        right: 0px;
+
+      }
+
+      &-title {
+        position: relative;
+      }
+
+      &-info {
+        position: relative;
+        z-index: 10;
+        margin: auto;
+        background-color: rgba(97, 96, 96, 0.7);
+        display: inline-block;
+        padding: 30px 30px 0px 30px;
+        border-radius: 10px;
+        margin: 30px;
+        backdrop-filter: blur(3px);
+
+        @media(max-width:450px) {
+          margin: 15px 0px;
+          padding: 10px;
+        }
+
+        &>div:nth-of-type(1) {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+          position: relative;
+
+          .login-title {
+            max-width: 35%;
+            position: relative
+          }
+        }
+
+        &>span>form>div {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+          position: relative;
+
+          &>label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 8px;
+
+            @media(max-width:450px) {
+              left: 30px;
+            }
+
+            &>img {
+              width: 24px;
+            }
+          }
+
+          &>input {
+            border: 1px solid map-get($color, main);
+            border-radius: 4px;
+            padding: 8px 10px;
+            padding-left: 36px;
+
+            @media(max-width:450px) {
+              width: 80%;
+            }
+
+            &::placeholder {
+              font-size: 14px;
+              // padding-left: 24px;
+            }
+
+            &:focus,
+            &:active {
+              border: 1px solid map-get($color, main);
+              outline: none;
+            }
+          }
+
+          .pwd {
+            position: absolute;
+            width: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 8px;
+            cursor: pointer;
+
+            @media(max-width:450px) {
+              right: 33px;
+            }
+
+            &-show {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

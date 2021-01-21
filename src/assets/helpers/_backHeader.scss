@@ -1,0 +1,13 @@
+.backHeader {
+  &>nav {
+    &>a {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+
+      &:hover {
+        color: map-get($color, main);
+      }
+    }
+  }
+}

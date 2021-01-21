@@ -1,0 +1,95 @@
+.savedog {
+    .banner {
+        background-image: url(~@/assets/images/savedog/banner.jpg);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 400px;
+        color: #fff;
+
+        @media(max-width:768px) {
+            min-height: 290px;
+        }
+
+        &>div {
+            margin-left: 50px;
+            margin-top: 130px;
+            display: inline-block;
+
+            @media(max-width:768px) {
+                background-color: rgba(255, 255, 255, 0.3);
+                padding: 8px 15px;
+                border-radius: 4px;
+                backdrop-filter: blur(3px);
+            }
+
+            &>p {
+                margin-top: 2%;
+                margin-left: 12%;
+                font-size: 18px;
+
+                &>span {
+                    border: 1px solid #fff;
+                    height: 1px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    animation-name: lines;
+                    animation-timing-function: ease-in-out;
+                    animation-duration: 2s;
+                    animation-iteration-count: infinite;
+
+                    @keyframes lines {
+                        0% {
+                            width: 0px;
+                        }
+
+                        100% {
+                            width: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .content {
+        font-size: 16px;
+        margin-bottom: 80px;
+
+        @media(max-width:1200px) {
+            width: 90%;
+            margin: auto;
+        }
+
+        @media(max-width:450px) {
+            width: 95%;
+        }
+
+
+        &>p {
+            text-align: right;
+        }
+
+        &-item {
+            opacity: 0;
+            transition: ease-in-out 2s;
+            transform: translateY(200px);
+
+            @at-root {
+                .fade-in {
+                    opacity: 1 !important;
+                    transform: translateY(0px) !important;
+                }
+            }
+
+            h4 {
+                text-align: center;
+                margin: 30px;
+            }
+
+            &>li {
+                list-style: decimal;
+            }
+        }
+    }
+}
