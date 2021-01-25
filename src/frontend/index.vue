@@ -7,8 +7,8 @@
       <div class="index-content">
         <div class="index-content-title">
           <h2>領養專區</h2>
-          <a href="/adopt" class="color-link-main index-content-adopt"
-            >前往領養</a
+          <router-link to="/adopt" class="color-link-main index-content-adopt"
+            >前往領養</router-link
           >
         </div>
         <div class="index-content-item">
@@ -20,14 +20,14 @@
           </div>
         </div>
         <div class="index-content-goadopt">
-          <a href="/adopt" class="go-adopt"
+          <router-link to="/adopt" class="go-adopt"
             ><span><img src="../assets/images/index/onlydog.png" alt="" /></span
-            ><span>尋找專屬汪汪</span></a
+            ><span>尋找專屬汪汪</span></router-link
           >
-          <a href="/adopt" class="go-adopt"
+          <router-link to="/adopt" class="go-adopt"
             ><span
               ><img src="../assets/images/index/luckydog.png" alt="" /></span
-            ><span>查看幸運汪汪</span></a
+            ><span>查看幸運汪汪</span></router-link
           >
         </div>
         <div><img src="../assets/images/index/content2.png" alt="" /></div>

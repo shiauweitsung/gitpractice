@@ -56,11 +56,29 @@
       </div>
       <div class="footer-wrap-community">
         <ul>
-          <li><a href="/adopt" class="color-link-main">領養動物</a></li>
-          <li><a href="/save" class="color-link-main">救援資訊</a></li>
-          <li><a href="/purpose" class="color-link-main">平台宗旨</a></li>
-          <li><a href="/login" class="color-link-main">登入會員</a></li>
-          <li><a href="" class="color-link-main">贊助罐罐</a></li>
+          <li>
+            <router-link to="/adopt" class="color-link-main"
+              >領養動物</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/save" class="color-link-main"
+              >救援資訊</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/purpose" class="color-link-main"
+              >平台宗旨</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/login" class="color-link-main"
+              >登入會員</router-link
+            >
+          </li>
+          <li>
+            <router-link to="" class="color-link-main">預約領養</router-link>
+          </li>
         </ul>
         <div class="footer-wrap-community-media">
           <a href=""
