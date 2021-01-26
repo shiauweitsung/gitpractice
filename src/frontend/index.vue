@@ -1,6 +1,7 @@
 <template>
   <div class="index">
     <slick />
+    <button @click="showalert">show alert</button>
     <section>
       <div><img src="../assets/images/index/content.png" alt="" /></div>
       <div></div>

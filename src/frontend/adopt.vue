@@ -13,6 +13,7 @@
         </div>
       </div>
     </loading>
+    <alert />
     <div class="banner">
       <div>
         <h4>愛要及時</h4>
@@ -112,11 +113,13 @@
 </template>
 <script>
 import page from '@/components/pagination'
+import alert from '@/components/AlertMessage'
 
 export default {
   name: 'adopt',
   components: {
-    page
+    page,
+    alert
   },
   data () {
     return {
@@ -159,9 +162,11 @@ export default {
         vm.favorite.push(item.id)
         vm.isLoading = true
         vm.favoriteadd = true
+        vm.$bus.$emit('message', '關注成功', 'success')
       } else {
         vm.favorite.splice(num, 1)
         vm.favoriteadd = false
+        vm.$bus.$emit('message', '取消關注', 'error')
       }
       localStorage.setItem('addfav', JSON.stringify(vm.favorite))
       vm.isLoading = false
