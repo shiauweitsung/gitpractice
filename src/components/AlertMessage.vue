@@ -7,7 +7,7 @@
         :key="key"
         :class="item.status"
       >
-        <img src="~@/assets/images/icon/dog.png" alt="" style="width: 32px" />
+        <img src="~@/assets/images/icon/dog2.png" alt="" style="width: 32px" />
         <p>{{ item.message }}</p>
         <button
           type="button"

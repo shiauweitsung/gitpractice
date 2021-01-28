@@ -51,7 +51,7 @@
             <div class="content">
               <div class="addfav"></div>
               <div class="addAdopt">
-                <button @click="editfav(item)">
+                <button @click="editfav(item)" title="加入關注">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="36"
@@ -194,6 +194,7 @@ export default {
         if (res.data.success) {
           vm.getCart()
           vm.isLoading = false
+          vm.$bus.$emit('message', '已加入預約領養', 'success')
         } else {
           console.log('error')
           vm.isLoading = false

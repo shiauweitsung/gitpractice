@@ -60,7 +60,11 @@
       </div>
     </div>
     <div class="d-flex justify-content-center mb-3">
-      <pagination :pages="pagination" @emitPage="getAdopt"></pagination>
+      <pagination
+        :pages="pagination"
+        @emitPage="getAdopt"
+        v-if="paginShow"
+      ></pagination>
     </div>
     <!-- adopt Modal -->
     <div
@@ -211,7 +215,8 @@ export default {
       modalData: [],
       isNew: false,
       isLoading: false,
-      pagination: {}
+      pagination: {},
+      paginShow: false
     }
   },
   methods: {
@@ -223,6 +228,10 @@ export default {
         vm.pagination = res.data.pagination
         vm.data = res.data.products
         vm.isLoading = false
+        console.log(res)
+        if (res.data.success) {
+          vm.paginShow = true
+        }
       })
     },
     openModal: function (isNew, item) {

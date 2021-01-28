@@ -1,7 +1,6 @@
 <template>
   <div class="index">
     <slick />
-    <button @click="showalert">show alert</button>
     <section>
       <div><img src="../assets/images/index/content.png" alt="" /></div>
       <div></div>
@@ -14,10 +13,14 @@
         </div>
         <div class="index-content-item">
           <div class="index-content-item-1">
-            <a href=""><div class="index-content-item-adopt"></div></a>
+            <router-link to="/adopt"
+              ><div class="index-content-item-adopt"></div
+            ></router-link>
           </div>
           <div class="index-content-item-2">
-            <a href=""><div class="index-content-item-unadopt"></div></a>
+            <router-link to="/adopt"
+              ><div class="index-content-item-unadopt"></div
+            ></router-link>
           </div>
         </div>
         <div class="index-content-goadopt">
@@ -98,6 +101,11 @@
                 style="width: 16px"
             /></a>
           </div>
+          <marquee behavior="" direction="" class="marqee">
+            <span>號外號外!! 信義區超可愛汪星人</span>
+            <span>南港地區救援成功</span>
+            <span>中永和送養活動</span>
+          </marquee>
           <div class="index-content-note-list-content">
             <ul>
               <li>

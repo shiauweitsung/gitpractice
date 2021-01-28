@@ -13,6 +13,7 @@
         </div>
       </div>
     </loading>
+    <alert />
     <div class="adopt_cart-wrap" v-if="cartLength > 0">
       <div
         class="adopt_cart-wrap-item"
@@ -28,7 +29,11 @@
           <p>性別 : {{ item.product.unit }}</p>
         </div>
         <div class="adopt_cart-wrap-item-remove">
-          <button class="btn-remove" @click.prevent="delCart(item.id)">
+          <button
+            class="btn-remove"
+            @click.prevent="delCart(item.id)"
+            title="刪除"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -132,8 +137,12 @@
   </div>
 </template>
 <script>
+import alert from '@/components/AlertMessage'
 export default {
   name: 'adopt_cart',
+  components: {
+    alert
+  },
   data () {
     return {
       cart: [],
@@ -178,9 +187,9 @@ export default {
       const vm = this
       vm.isLoading = true
       vm.$http.delete(url).then(function (res) {
-        console.log(res)
         if (res.data.success) {
           vm.getCart()
+          vm.$bus.$emit('message', '取消預約', 'error')
         } else {
           console.log('error')
         }

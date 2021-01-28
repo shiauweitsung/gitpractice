@@ -13,6 +13,7 @@
         </div>
       </div>
     </loading>
+    <alert />
     <div class="backPage">
       <router-link to="/adopt" class="color-main"></router-link>
     </div>
@@ -31,7 +32,7 @@
           </div>
           <div class="adopt_one-content-info-add">
             <a href="" @click.prevent="addCart(data.id)">預約領養</a>
-            <button @click="editfav(data)">
+            <button @click="editfav(data)" title="加入關注">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="36"
@@ -148,8 +149,12 @@
 </template>
 
 <script>
+import alert from '@/components/AlertMessage'
 export default {
   name: 'adopt_one',
+  components: {
+    alert
+  },
   data () {
     return {
       id: '',
@@ -174,9 +179,7 @@ export default {
       const vm = this
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOMPATH}/products/all`
       vm.$http.get(url).then(function (res) {
-        console.log(res)
         vm.allData = res.data.products
-        console.log(vm.allData)
       })
     },
     learnmore: function (id) {
@@ -217,7 +220,6 @@ export default {
         if (res.data.success) {
           vm.isLoading = false
           vm.getCart()
-          console.log('success')
         } else {
           console.log('error')
           vm.isLoading = false

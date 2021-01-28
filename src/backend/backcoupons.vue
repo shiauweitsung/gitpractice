@@ -232,9 +232,7 @@ export default {
       if (vm.isNew) {
         const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`
         vm.$http.post(url, { data: vm.tempCoupon }).then(function (res) {
-          console.log(res)
           if (res.data.success) {
-            console.log('success')
             vm.getCoupons()
           }
           vm.isLoading = false
@@ -243,9 +241,7 @@ export default {
       } else {
         const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`
         vm.$http.put(url, { data: vm.tempCoupon }).then(function (res) {
-          console.log(res)
           if (res.data.success) {
-            console.log('success')
             vm.getCoupons()
           }
           vm.isLoading = false
@@ -263,9 +259,7 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`
       vm.isLoading = true
       vm.$http.delete(url).then(function (res) {
-        console.log(res)
         if (res.data.success) {
-          console.log('success')
           vm.getCoupons()
         }
         vm.isLoading = false
