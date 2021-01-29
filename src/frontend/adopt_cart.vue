@@ -176,6 +176,7 @@ export default {
       const vm = this
       vm.isLoading = true
       vm.$http.get(url).then(function (res) {
+        console.log(res)
         vm.isLoading = false
         vm.cart = res.data.data
         vm.cartLength = vm.cart.carts.length

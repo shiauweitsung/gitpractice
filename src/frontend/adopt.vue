@@ -132,6 +132,7 @@ export default {
       favorite: JSON.parse(localStorage.getItem('addfav')) || [],
       favoriteadd: false,
       adoptVal: 0,
+      adoptId: [],
       pagination: [],
       isLoading: false
     }
@@ -190,16 +191,22 @@ export default {
         product_id: id,
         qty: qty
       }
-      vm.$http.post(url, { data: cart }).then(function (res) {
-        if (res.data.success) {
-          vm.getCart()
-          vm.isLoading = false
-          vm.$bus.$emit('message', '已加入預約領養', 'success')
-        } else {
-          console.log('error')
-          vm.isLoading = false
-        }
-      })
+      if (vm.adoptId.includes(id)) {
+        vm.$bus.$emit('message', '已經加入預約領養', 'error')
+        vm.isLoading = false
+      } else {
+        vm.$http.post(url, { data: cart }).then(function (res) {
+          if (res.data.success) {
+            vm.isLoading = false
+            vm.getCart()
+            vm.$bus.$emit('message', '已加入預約領養', 'success')
+            console.log(res)
+          } else {
+            console.log('error')
+            vm.isLoading = false
+          }
+        })
+      }
     },
     getCart: function () {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
@@ -208,6 +215,9 @@ export default {
       vm.$http.get(url).then(function (res) {
         vm.isLoading = false
         vm.adoptVal = res.data.data.carts.length
+        vm.adoptId = res.data.data.carts.map(function (item) {
+          return item.product_id
+        })
         vm.$bus.$emit('cartVal', vm.adoptVal)
       })
     }

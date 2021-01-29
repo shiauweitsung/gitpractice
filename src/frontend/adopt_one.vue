@@ -162,7 +162,8 @@ export default {
       allData: [],
       favorite: JSON.parse(localStorage.getItem('addfav')) || [],
       isLoading: false,
-      adoptVal: 0
+      adoptVal: 0,
+      adoptId: []
     }
   },
   methods: {
@@ -200,9 +201,11 @@ export default {
         vm.favorite.push(item.id)
         vm.isLoading = true
         vm.favoriteadd = true
+        vm.$bus.$emit('message', '已加入關注', 'success')
       } else {
         vm.favorite.splice(num, 1)
         vm.favoriteadd = false
+        vm.$bus.$emit('message', '取消關注', 'error')
       }
       localStorage.setItem('addfav', JSON.stringify(vm.favorite))
       vm.isLoading = false
@@ -216,15 +219,21 @@ export default {
         product_id: id,
         qty: qty
       }
-      vm.$http.post(url, { data: cart }).then(function (res) {
-        if (res.data.success) {
-          vm.isLoading = false
-          vm.getCart()
-        } else {
-          console.log('error')
-          vm.isLoading = false
-        }
-      })
+      if (vm.adoptId.includes(id)) {
+        vm.$bus.$emit('message', '已經加入預約領養', 'error')
+        vm.isLoading = false
+      } else {
+        vm.$http.post(url, { data: cart }).then(function (res) {
+          if (res.data.success) {
+            vm.isLoading = false
+            vm.$bus.$emit('message', '已加入預約領養', 'success')
+            vm.getCart()
+          } else {
+            console.log('error')
+            vm.isLoading = false
+          }
+        })
+      }
     },
     getCart: function () {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`
@@ -233,6 +242,9 @@ export default {
       vm.$http.get(url).then(function (res) {
         vm.isLoading = false
         vm.adoptVal = res.data.data.carts.length
+        vm.adoptId = res.data.data.carts.map(function (item) {
+          return item.product_id
+        })
         vm.$bus.$emit('cartVal', vm.adoptVal)
       })
     }

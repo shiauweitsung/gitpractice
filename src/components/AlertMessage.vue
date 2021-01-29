@@ -48,7 +48,7 @@ export default {
             vm.message.splice(i, 1)
           }
         })
-      }, 5000)
+      }, 3000)
     },
     removeMessageNow: function (num) {
       this.message.splice(num, 1)
