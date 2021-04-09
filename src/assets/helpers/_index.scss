@@ -47,7 +47,14 @@
             background-image: url(~@/assets/images/index/banner5.jpg);
         }
     }
-
+    &-img{
+      &>img{
+        @media(max-width:576px){
+            height: 18px;
+            width: 100%;
+           }
+        }
+    }
     &-content {
         background-color: map-get($color, main);
 

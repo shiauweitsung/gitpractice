@@ -134,7 +134,8 @@ export default {
       adoptVal: 0,
       adoptId: [],
       pagination: [],
-      isLoading: false
+      isLoading: false,
+      filterPagData: []
     }
   },
   methods: {
@@ -146,6 +147,7 @@ export default {
       vm.$http.get(url).then(function (res) {
         vm.isLoading = false
         vm.data = res.data.products
+        vm.filterPagData = res.data
         vm.pagination = res.data.pagination
       })
     },

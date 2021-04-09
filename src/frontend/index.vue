@@ -2,8 +2,9 @@
   <div class="index">
     <slick />
     <section>
-      <div><img src="../assets/images/index/content.png" alt="" /></div>
-      <div></div>
+      <div class="index-img">
+        <img src="../assets/images/index/content.png" alt="" />
+      </div>
       <div class="index-content">
         <div class="index-content-title">
           <h2>領養專區</h2>
@@ -34,7 +35,9 @@
             ><span>查看幸運汪汪</span></router-link
           >
         </div>
-        <div><img src="../assets/images/index/content2.png" alt="" /></div>
+        <div class="index-img">
+          <img src="../assets/images/index/content2.png" alt="" />
+        </div>
       </div>
       <div class="index-content-savedog">
         <div class="index-content-savedog-title">
