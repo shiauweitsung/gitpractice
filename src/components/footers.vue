@@ -16,7 +16,11 @@
         alt=""
         class="footer-title-img play"
       />
-      <img src="../assets/images/footer/wave-footer.png" alt="" />
+      <img
+        class="footer-title-img-header"
+        src="../assets/images/footer/wave-footer.png"
+        alt=""
+      />
     </div>
     <div class="footer-wrap">
       <div class="footer-wrap-header">
